@@ -1,0 +1,4833 @@
+{
+  "schema_version": 1,
+  "source": {
+    "pdf": "author-supplied Bridge manuscript",
+    "title": "Why Freeze the Encoder? A Controlled Study of End-to-End Sequence\u2013Graph Learning for User Behavior",
+    "tables": [
+      2,
+      3,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "verified_pages": [
+      19,
+      20,
+      21
+    ],
+    "note": "Only this user-selected PDF is authoritative. Values from retained code are labeled inference; no claim of exact reported-run reconstruction."
+  },
+  "seed_policy": {
+    "default": [
+      0,
+      1,
+      2
+    ],
+    "provenance": "PDF says three independent runs, not numeric seed IDs. 0/1/2 are the retained launcher convention and requested runner defaults."
+  },
+  "entrypoints": {
+    "brightkite/static_graph.py": {
+      "cwd": "brightkite",
+      "inferred_code_defaults": {
+        "model": "GCN",
+        "hidden_channels": 128,
+        "num_layers": 2,
+        "embedding_dim": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "dropout": 0.1,
+        "heads": 2,
+        "train_batch_size": 4096,
+        "eval_batch_size": 1048576,
+        "patience": 10,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "train_neg_sampling_ratio": 5,
+        "hits_k": "1,3,5,10,20,50,100",
+        "use_sequence_embedding": false,
+        "train_data_scale": 1.0
+      },
+      "provenance": "brightkite/static_graph.py: argparse defaults, AST inspected; inferred, not recovered run settings",
+      "inferred_launcher_overrides": {
+        "enable_early_stopping": true
+      },
+      "launcher_override_provenance": "brightkite/launch_exp_static.py: retained grid enables validation early stopping; inferred, not stated by PDF hyperparameter tables"
+    },
+    "amazon/static_graph.py": {
+      "cwd": "amazon",
+      "inferred_code_defaults": {
+        "model": "GCN",
+        "hidden_channels": 128,
+        "num_layers": 2,
+        "embedding_dim": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "dropout": 0.1,
+        "heads": 2,
+        "train_batch_size": 4096,
+        "eval_batch_size": 1048576,
+        "patience": 10,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "train_neg_sampling_ratio": 5,
+        "hits_k": "1,3,5,10,20,50,100",
+        "use_sequence_embedding": false
+      },
+      "provenance": "amazon/static_graph.py: argparse defaults, AST inspected; inferred, not recovered run settings",
+      "inferred_launcher_overrides": {
+        "enable_early_stopping": true
+      },
+      "launcher_override_provenance": "amazon/launch_exp_static.py: retained grid enables validation early stopping; inferred, not stated by PDF hyperparameter tables"
+    },
+    "brightkite/joint.py": {
+      "cwd": "brightkite",
+      "inferred_code_defaults": {
+        "event_set": "personal",
+        "eval_every": 10,
+        "debug_subset": null,
+        "max_len": 100,
+        "max_events": 50,
+        "max_examples": 50,
+        "bert_hidden_size": 128,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "num_negative_samples": 100,
+        "gnn_model": "GCN",
+        "gnn_num_layers": 2,
+        "gnn_dropout": 0.1,
+        "gnn_heads": 1,
+        "gnn_layer_types": "TokenXAT,GCN",
+        "run_diagnostic_gcn": false,
+        "num_neighbors": 10,
+        "add_self_loops": false,
+        "aggregation_mode": "fixed",
+        "compress_dim": 4,
+        "qk_norm": false,
+        "compress_first": false,
+        "msg_mode": "gat",
+        "gcn_edge_weight": false,
+        "batch_size": 64,
+        "eval_batch_size": 256,
+        "patience": 20,
+        "num_epochs": 100,
+        "lr": 0.0001,
+        "grad_clip_norm": 1.0,
+        "train_neg_sampling_ratio": 2.0,
+        "loss_alpha": 0.5,
+        "hits_k": "1,3,5,10,20,50,100",
+        "enable_early_stopping": false,
+        "num_workers": 0,
+        "no_relational": true,
+        "encoder_compress": "mean",
+        "pre_agg_proj": false,
+        "post_agg_proj": false,
+        "layer_norm": false,
+        "freeze_seq_encoder": false,
+        "supervised_warmup_epochs": 0,
+        "run_tag": null
+      },
+      "provenance": "brightkite/joint.py: argparse defaults, AST inspected; inferred, not recovered run settings",
+      "inferred_launcher_overrides": {
+        "enable_early_stopping": true
+      },
+      "launcher_override_provenance": "brightkite/launch_exp.py: retained grid enables validation early stopping; inferred, not stated by PDF hyperparameter tables"
+    },
+    "amazon/joint.py": {
+      "cwd": "amazon",
+      "inferred_code_defaults": {
+        "event_set": "personal",
+        "eval_every": 10,
+        "debug_subset": null,
+        "max_len": 100,
+        "max_events": 50,
+        "max_examples": 50,
+        "bert_hidden_size": 128,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "num_negative_samples": 100,
+        "gnn_model": "GCN",
+        "gnn_num_layers": 2,
+        "gnn_dropout": 0.1,
+        "gnn_heads": 1,
+        "gnn_layer_types": "TokenXAT,GCN",
+        "run_diagnostic_gcn": false,
+        "num_neighbors": 2,
+        "add_self_loops": false,
+        "aggregation_mode": "fixed",
+        "compress_dim": 4,
+        "qk_norm": false,
+        "compress_first": false,
+        "msg_mode": "gat",
+        "gcn_edge_weight": false,
+        "batch_size": 256,
+        "eval_batch_size": 2048,
+        "patience": 20,
+        "num_epochs": 100,
+        "lr": 0.0001,
+        "grad_clip_norm": 1.0,
+        "train_neg_sampling_ratio": 2.0,
+        "loss_alpha": 0.5,
+        "hits_k": "1,3,5,10,20,50,100",
+        "enable_early_stopping": false,
+        "num_workers": 0,
+        "no_relational": true,
+        "encoder_compress": "mean",
+        "pre_agg_proj": false,
+        "post_agg_proj": false,
+        "layer_norm": false
+      },
+      "provenance": "amazon/joint.py: argparse defaults, AST inspected; inferred, not recovered run settings",
+      "inferred_launcher_overrides": {
+        "enable_early_stopping": true
+      },
+      "launcher_override_provenance": "amazon/launch_exp.py: retained grid enables validation early stopping; inferred, not stated by PDF hyperparameter tables"
+    },
+    "brightkite/temporal_graph.py": {
+      "cwd": "brightkite",
+      "inferred_code_defaults": {
+        "model": "TGN",
+        "embedding_dim": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "eval_batch_size": 262144,
+        "patience": 10,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "train_neg_sampling_ratio": 5,
+        "hits_k": "1,3,5,10,20,50,100",
+        "friendship_time_location": "random",
+        "max_events": 100
+      },
+      "provenance": "brightkite/temporal_graph.py: argparse defaults, AST inspected; inferred, not recovered run settings",
+      "inferred_launcher_overrides": {
+        "enable_early_stopping": true
+      },
+      "launcher_override_provenance": "brightkite/launch_exp_tgn.py: retained grid enables validation early stopping; inferred, not stated by PDF hyperparameter tables"
+    },
+    "amazon/temporal_graph.py": {
+      "cwd": "amazon",
+      "inferred_code_defaults": {
+        "model": "TGN",
+        "embedding_dim": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "eval_batch_size": 262144,
+        "patience": 10,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "train_neg_sampling_ratio": 5,
+        "hits_k": "1,3,5,10,20,50,100",
+        "max_events": 100
+      },
+      "provenance": "amazon/temporal_graph.py: argparse defaults, AST inspected; inferred, not recovered run settings",
+      "inferred_launcher_overrides": {
+        "enable_early_stopping": true
+      },
+      "launcher_override_provenance": "amazon/launch_exp_tgn.py: retained grid enables validation early stopping; inferred, not stated by PDF hyperparameter tables"
+    },
+    "brightkite/temporal_graph_new.py": {
+      "cwd": "brightkite",
+      "inferred_code_defaults": {
+        "model": "TGN",
+        "embedding_dim": 64,
+        "epochs": 100,
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "eval_batch_size": 262144,
+        "patience": 10,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "train_neg_sampling_ratio": 5,
+        "hits_k": "1,3,5,10,20,50,100",
+        "max_events": 100,
+        "friendship_time_location": "random",
+        "rp_dim_factor": 2,
+        "rp_num_layer": 2,
+        "rp_time_decay_weight": 1.0,
+        "rp_use_matrix": false,
+        "rp_not_scale": false,
+        "rp_enforce_dim": -1,
+        "rp_not_encode": false,
+        "rp_num_hashes": 4,
+        "rp_bucket_pool_size": 4,
+        "rp_agg": "max",
+        "dygformer_channel_dim": 64,
+        "dygformer_patch_size": 4,
+        "dygformer_layers": 2,
+        "dygformer_heads": 2,
+        "dygformer_dropout": 0.1,
+        "dygformer_max_seq_len": 512,
+        "gm_num_tokens": 20,
+        "gm_num_layers": 2,
+        "gm_token_dim_factor": 0.5,
+        "gm_channel_dim_factor": 4.0,
+        "gm_dropout": 0.1,
+        "gm_num_neighbors": 20,
+        "gm_time_gap": 2000,
+        "cawn_num_neighbors": 20,
+        "cawn_walk_length": 2,
+        "cawn_num_walk_heads": 8,
+        "cawn_position_dim": 32,
+        "cawn_dropout": 0.1,
+        "tgat_num_layers": 2,
+        "tgat_num_heads": 2,
+        "tgat_dropout": 0.1,
+        "tgat_num_neighbors": 20,
+        "tcl_num_layers": 2,
+        "tcl_num_heads": 2,
+        "tcl_num_depths": 21,
+        "tcl_dropout": 0.1,
+        "tcl_num_neighbors": 20,
+        "nat_time_dim": 2,
+        "nat_num_neighbors": "1,32",
+        "nat_n_hops": 1,
+        "nat_ngh_dim": 4,
+        "nat_dropout": 0.1
+      },
+      "provenance": "brightkite/temporal_graph_new.py: argparse defaults, AST inspected; inferred, not recovered run settings",
+      "inferred_launcher_overrides": {
+        "enable_early_stopping": true
+      },
+      "launcher_override_provenance": "brightkite/launch_exp_tgn.py: retained grid enables validation early stopping; inferred, not stated by PDF hyperparameter tables"
+    },
+    "amazon/temporal_graph_new.py": {
+      "cwd": "amazon",
+      "inferred_code_defaults": {
+        "model": "TGN",
+        "embedding_dim": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "eval_batch_size": 262144,
+        "patience": 10,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "train_neg_sampling_ratio": 5,
+        "hits_k": "1,3,5,10,20,50,100",
+        "max_events": 100,
+        "rp_dim_factor": 2,
+        "rp_num_layer": 2,
+        "rp_time_decay_weight": 1.0,
+        "rp_use_matrix": false,
+        "rp_not_scale": false,
+        "rp_enforce_dim": -1,
+        "rp_not_encode": false,
+        "dygformer_channel_dim": 64,
+        "dygformer_patch_size": 4,
+        "dygformer_layers": 2,
+        "dygformer_heads": 2,
+        "dygformer_dropout": 0.1,
+        "dygformer_max_seq_len": 512,
+        "gm_num_tokens": 20,
+        "gm_num_layers": 2,
+        "gm_token_dim_factor": 0.5,
+        "gm_channel_dim_factor": 4.0,
+        "gm_dropout": 0.1,
+        "gm_num_neighbors": 20,
+        "gm_time_gap": 2000,
+        "cawn_num_neighbors": 20,
+        "cawn_walk_length": 2,
+        "cawn_num_walk_heads": 8,
+        "cawn_position_dim": 32,
+        "cawn_dropout": 0.1,
+        "tgat_num_layers": 2,
+        "tgat_num_heads": 2,
+        "tgat_dropout": 0.1,
+        "tgat_num_neighbors": 20,
+        "tcl_num_layers": 2,
+        "tcl_num_heads": 2,
+        "tcl_num_depths": 21,
+        "tcl_dropout": 0.1,
+        "tcl_num_neighbors": 20,
+        "nat_time_dim": 2,
+        "nat_num_neighbors": "1,32",
+        "nat_n_hops": 1,
+        "nat_ngh_dim": 4,
+        "nat_dropout": 0.1,
+        "ctan_gnn_act": "relu",
+        "ctan_gamma": 1.0,
+        "ctan_readout_hidden": 0,
+        "ctan_predict_dst": false,
+        "ctan_conv_type": "graph_attention"
+      },
+      "provenance": "amazon/temporal_graph_new.py: argparse defaults, AST inspected; inferred, not recovered run settings",
+      "inferred_launcher_overrides": {
+        "enable_early_stopping": true
+      },
+      "launcher_override_provenance": "amazon/launch_exp_tgn.py: retained grid enables validation early stopping; inferred, not stated by PDF hyperparameter tables"
+    },
+    "notebooks/static_graph_clf.py": {
+      "cwd": "notebooks",
+      "inferred_code_defaults": {
+        "model": "GCN",
+        "hidden_channels": 128,
+        "num_layers": 2,
+        "embedding_dim": 128,
+        "epochs": 500,
+        "lr": 0.001,
+        "dropout": 0.1,
+        "heads": 2,
+        "train_batch_size": 4096,
+        "eval_batch_size": 4096,
+        "patience": 20,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "use_sequence_embedding": false,
+        "force_new_splits": false,
+        "val_size": 0.1,
+        "test_size": 0.1
+      },
+      "provenance": "notebooks/static_graph_clf.py: argparse defaults, AST inspected; inferred, not recovered run settings"
+    },
+    "notebooks/temporal_graph_tpnet.py": {
+      "cwd": "notebooks",
+      "inferred_code_defaults": {
+        "model": "TPNet",
+        "embedding_dim": 128,
+        "epochs": 50,
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "eval_batch_size": 262144,
+        "max_events": 50,
+        "patience": 10,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "clf_layers": 2,
+        "embed_batch_size": 2048,
+        "force_new_splits": false,
+        "use_sequence_embedding": false,
+        "rp_dim_factor": 2,
+        "rp_num_layer": 2,
+        "rp_time_decay_weight": 0.0001,
+        "rp_use_matrix": false,
+        "rp_not_scale": false,
+        "rp_enforce_dim": -1
+      },
+      "provenance": "notebooks/temporal_graph_tpnet.py: argparse defaults, AST inspected; inferred, not recovered run settings"
+    },
+    "notebooks/temporal_graph.py": {
+      "cwd": "notebooks",
+      "inferred_code_defaults": {
+        "model": "TGN",
+        "embedding_dim": 128,
+        "epochs": 500,
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "clf_layers": 2,
+        "eval_batch_size": 262144,
+        "patience": 10,
+        "eval_every": 5,
+        "enable_early_stopping": false,
+        "num_neighbors": 10,
+        "max_events": 50,
+        "use_sequence_embedding": false,
+        "force_new_splits": false
+      },
+      "provenance": "notebooks/temporal_graph.py: argparse defaults, AST inspected; inferred, not recovered run settings"
+    },
+    "notebooks/review_embedding.py": {
+      "cwd": "notebooks",
+      "inferred_code_defaults": {
+        "epochs": 500,
+        "max_events": 50,
+        "batch_size": 2048,
+        "num_workers": 0,
+        "patience": 100,
+        "gnn_layer_types": "TokenXAT",
+        "bridge": false,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 512,
+        "tr_dropout": 0.1,
+        "tr_no_pos_enc": false,
+        "tr_out_dim": 0,
+        "val_size": 0.1,
+        "test_size": 0.1,
+        "dropout": 0.5,
+        "heads": 1,
+        "compress_dim": 4,
+        "aggregation_mode": "gcn",
+        "lr": 0.0001,
+        "pre_agg_proj": false,
+        "post_agg_proj": false,
+        "compress_mode": "fixed",
+        "add_self_loops": false,
+        "qk_norm": false,
+        "compress_first": false,
+        "layer_norm": false,
+        "seq_only": false,
+        "freeze_encoder": false,
+        "encoder_warmup_epochs": 50,
+        "residual": false,
+        "clf_layers": 2,
+        "num_neighbors": 10,
+        "rating_emb_dim": 64,
+        "force_new_splits": false
+      },
+      "provenance": "notebooks/review_embedding.py: argparse defaults, AST inspected; inferred, not recovered run settings"
+    },
+    "relgt-main/main_node_ddp.py": {
+      "cwd": "relgt-main",
+      "inferred_code_defaults": {
+        "task": "driver-top3",
+        "precompute": true,
+        "lr": 0.0001,
+        "warmup_steps": 1000,
+        "epochs": 10,
+        "batch_size": 512,
+        "channels": 512,
+        "aggr": "sum",
+        "num_layers": 1,
+        "num_heads": 4,
+        "gt_conv_type": "full",
+        "ablate": "none",
+        "gnn_pe_dim": 0,
+        "num_neighbors": 300,
+        "num_centroids": 4096,
+        "ff_dropout": 0.1,
+        "attn_dropout": 0.1,
+        "weight_decay": 1e-05,
+        "temporal_strategy": "uniform",
+        "pos_enc": "none",
+        "max_degree": 10000,
+        "pos_enc_dim": 128,
+        "max_steps_per_epoch": 3000,
+        "num_workers": 2,
+        "model_parameters": 0,
+        "train_stage": "finetune",
+        "use_review_text": false
+      },
+      "provenance": "relgt-main/main_node_ddp.py: argparse defaults, AST inspected; inferred, not recovered run settings"
+    },
+    "brightkite/sequence_embedding.py": {
+      "cwd": "brightkite",
+      "inferred_code_defaults": {
+        "event_set": "personal",
+        "max_events": 100,
+        "batch_size": 256,
+        "num_epochs": 50,
+        "learning_rate": 0.001,
+        "hidden_size": 128,
+        "num_hidden_layers": 4,
+        "num_attention_heads": 4,
+        "mask_prob": 0.15,
+        "embedding_method": "cls",
+        "embedding_layer": -1,
+        "mode": "train"
+      },
+      "provenance": "brightkite/sequence_embedding.py: argparse defaults, AST inspected; inferred, not recovered run settings"
+    },
+    "amazon/sequence_embedding.py": {
+      "cwd": "amazon",
+      "inferred_code_defaults": {
+        "event_set": "personal",
+        "max_events": 100,
+        "batch_size": 256,
+        "num_epochs": 50,
+        "learning_rate": 0.001,
+        "hidden_size": 128,
+        "num_hidden_layers": 4,
+        "num_attention_heads": 4,
+        "mask_prob": 0.15,
+        "embedding_method": "cls",
+        "embedding_layer": -1,
+        "mode": "train"
+      },
+      "provenance": "amazon/sequence_embedding.py: argparse defaults, AST inspected; inferred, not recovered run settings"
+    }
+  },
+  "suites": {
+    "link": {
+      "datasets": [
+        "brightkite",
+        "gowalla",
+        "movies",
+        "electronics",
+        "clothing"
+      ],
+      "default_methods": [
+        "static-gcn",
+        "static-gat",
+        "static-tfconv",
+        "two-stage-gcn",
+        "two-stage-gat",
+        "two-stage-tfconv",
+        "bridge-gcn",
+        "bridge-gat",
+        "bridge-tfconv"
+      ]
+    },
+    "fraud": {
+      "datasets": [
+        "movies",
+        "electronics",
+        "clothing"
+      ],
+      "default_methods": [
+        "static-gcn",
+        "static-gat",
+        "static-tfconv",
+        "tgn",
+        "dyrep",
+        "two-stage-gcn",
+        "two-stage-gat",
+        "two-stage-tfconv",
+        "relgt",
+        "relgt-text",
+        "sbert",
+        "bridge-gcn",
+        "bridge-gat",
+        "bridge-tfconv"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "static-gcn",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "two-stage-gcn",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "bridge-gcn",
+      "entrypoint": "brightkite/joint.py",
+      "arguments": {
+        "gnn_model": "GCN",
+        "gnn_layer_types": "GCN,GCN",
+        "lr": 0.0001,
+        "batch_size": 128,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 128,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "static-gat",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "two-stage-gat",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "bridge-gat",
+      "entrypoint": "brightkite/joint.py",
+      "arguments": {
+        "gnn_model": "GAT",
+        "gnn_layer_types": "GAT,GAT",
+        "lr": 0.0001,
+        "batch_size": 128,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 128,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "static-tfconv",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "two-stage-tfconv",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "bridge-tfconv",
+      "entrypoint": "brightkite/joint.py",
+      "arguments": {
+        "gnn_model": "TransformerConv",
+        "gnn_layer_types": "TransformerConv,TransformerConv",
+        "lr": 0.0001,
+        "batch_size": 128,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 128,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "tgn",
+      "entrypoint": "brightkite/temporal_graph.py",
+      "arguments": {
+        "model": "TGN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "dyrep",
+      "entrypoint": "brightkite/temporal_graph.py",
+      "arguments": {
+        "model": "DyRep",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "tcl",
+      "entrypoint": "brightkite/temporal_graph_new.py",
+      "arguments": {
+        "model": "TCL",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "nat",
+      "entrypoint": "brightkite/temporal_graph_new.py",
+      "arguments": {
+        "model": "NAT",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "graphmixer",
+      "entrypoint": "brightkite/temporal_graph_new.py",
+      "arguments": {
+        "model": "GraphMixer",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "tpnet",
+      "entrypoint": "brightkite/temporal_graph_new.py",
+      "arguments": {
+        "model": "TPNet",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "brightkite",
+      "method": "tncn",
+      "entrypoint": "brightkite/temporal_graph.py",
+      "arguments": {
+        "model": "TNCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "C.1 (not tabulated)",
+        "page": 19
+      },
+      "unresolved": [
+        "TNCN is reported in Tables 14-16 but omitted from Table 9; LR and batch size here are code-default inference, not paper-stated settings."
+      ],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/brightkite/friend_recommendation/relational_train.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/brightkite/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "static-gcn",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "two-stage-gcn",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "bridge-gcn",
+      "entrypoint": "brightkite/joint.py",
+      "arguments": {
+        "gnn_model": "GCN",
+        "gnn_layer_types": "GCN,GCN",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "static-gat",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "two-stage-gat",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "bridge-gat",
+      "entrypoint": "brightkite/joint.py",
+      "arguments": {
+        "gnn_model": "GAT",
+        "gnn_layer_types": "GAT,GAT",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "static-tfconv",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "two-stage-tfconv",
+      "entrypoint": "brightkite/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "bridge-tfconv",
+      "entrypoint": "brightkite/joint.py",
+      "arguments": {
+        "gnn_model": "TransformerConv",
+        "gnn_layer_types": "TransformerConv,TransformerConv",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "tgn",
+      "entrypoint": "brightkite/temporal_graph.py",
+      "arguments": {
+        "model": "TGN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "dyrep",
+      "entrypoint": "brightkite/temporal_graph.py",
+      "arguments": {
+        "model": "DyRep",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "tcl",
+      "entrypoint": "brightkite/temporal_graph_new.py",
+      "arguments": {
+        "model": "TCL",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "nat",
+      "entrypoint": "brightkite/temporal_graph_new.py",
+      "arguments": {
+        "model": "NAT",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "graphmixer",
+      "entrypoint": "brightkite/temporal_graph_new.py",
+      "arguments": {
+        "model": "GraphMixer",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "tpnet",
+      "entrypoint": "brightkite/temporal_graph_new.py",
+      "arguments": {
+        "model": "TPNet",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "gowalla",
+      "method": "tncn",
+      "entrypoint": "brightkite/temporal_graph.py",
+      "arguments": {
+        "model": "TNCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "C.1 (not tabulated)",
+        "page": 19
+      },
+      "unresolved": [
+        "TNCN is reported in Tables 14-16 but omitted from Table 9; LR and batch size here are code-default inference, not paper-stated settings."
+      ],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/gowalla/friend_recommendation/relational_train.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_val_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/relational_test_negative_sample_100.csv",
+        "data/tasks/gowalla/friend_recommendation/personal.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "static-gcn",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "two-stage-gcn",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "bridge-gcn",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "GCN",
+        "gnn_layer_types": "GCN,GCN",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "static-gat",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "two-stage-gat",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "bridge-gat",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "GAT",
+        "gnn_layer_types": "GAT,GAT",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "static-tfconv",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "two-stage-tfconv",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "bridge-tfconv",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "TransformerConv",
+        "gnn_layer_types": "TransformerConv,TransformerConv",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "tgn",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "TGN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "dyrep",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "DyRep",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "tcl",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "TCL",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "nat",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "NAT",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "graphmixer",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "GraphMixer",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "tpnet",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "TPNet",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "movies",
+      "method": "tncn",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "TNCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "C.1 (not tabulated)",
+        "page": 19
+      },
+      "unresolved": [
+        "TNCN is reported in Tables 14-16 but omitted from Table 9; LR and batch size here are code-default inference, not paper-stated settings."
+      ],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-movies/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-movies/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "static-gcn",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "two-stage-gcn",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "bridge-gcn",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "GCN",
+        "gnn_layer_types": "GCN,GCN",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "static-gat",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "two-stage-gat",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "bridge-gat",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "GAT",
+        "gnn_layer_types": "GAT,GAT",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "static-tfconv",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "two-stage-tfconv",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "bridge-tfconv",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "TransformerConv",
+        "gnn_layer_types": "TransformerConv,TransformerConv",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "tgn",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "TGN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "dyrep",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "DyRep",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "tcl",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "TCL",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "nat",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "NAT",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "graphmixer",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "GraphMixer",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "tpnet",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "TPNet",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "electronics",
+      "method": "tncn",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "TNCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "C.1 (not tabulated)",
+        "page": 19
+      },
+      "unresolved": [
+        "TNCN is reported in Tables 14-16 but omitted from Table 9; LR and batch size here are code-default inference, not paper-stated settings."
+      ],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-electronics/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-electronics/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "static-gcn",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "two-stage-gcn",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "bridge-gcn",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "GCN",
+        "gnn_layer_types": "GCN,GCN",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "static-gat",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "two-stage-gat",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "bridge-gat",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "GAT",
+        "gnn_layer_types": "GAT,GAT",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "static-tfconv",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 7,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "two-stage-tfconv",
+      "entrypoint": "amazon/static_graph.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true,
+        "seq_embedding_filename": "user_embedding.pkl"
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 8,
+        "page": 19
+      },
+      "unresolved": [
+        "Table 8 fixes encoder capacity but not MLM optimizer, epochs, pooling, sequence limits, or the embedding/checkpoint artifact used by the reported row. The retained pretrainer has no seed CLI. Resolve these and supply the matching frozen embedding before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "bridge-tfconv",
+      "entrypoint": "amazon/joint.py",
+      "arguments": {
+        "gnn_model": "TransformerConv",
+        "gnn_layer_types": "TransformerConv,TransformerConv",
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_num_layers": 1,
+        "bert_num_heads": 2,
+        "bert_hidden_size": 128
+      },
+      "paper_settings": {
+        "lr": 0.0001,
+        "batch_size": 32,
+        "bert_layers": 1,
+        "bert_heads": 2,
+        "bert_hidden": 128
+      },
+      "provenance": {
+        "table": 10,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Standard backbone is mapped to two same-type GNN layers; graph depth, pooling and remaining settings are code-default inference. Amazon's in Table 10 is applied to all three Table 2 categories."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "tgn",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "TGN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "dyrep",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "DyRep",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "tcl",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "TCL",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "nat",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "NAT",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "graphmixer",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "GraphMixer",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "tpnet",
+      "entrypoint": "amazon/temporal_graph_new.py",
+      "arguments": {
+        "model": "TPNet",
+        "lr": 0.001,
+        "train_batch_size": 1024
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 1024
+      },
+      "provenance": {
+        "table": 9,
+        "page": 19
+      },
+      "unresolved": [],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "link",
+      "dataset": "clothing",
+      "method": "tncn",
+      "entrypoint": "amazon/temporal_graph.py",
+      "arguments": {
+        "model": "TNCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "C.1 (not tabulated)",
+        "page": 19
+      },
+      "unresolved": [
+        "TNCN is reported in Tables 14-16 but omitted from Table 9; LR and batch size here are code-default inference, not paper-stated settings."
+      ],
+      "notes": [
+        "Temporal methods are appendix rows (Tables 14-16), not Table 2."
+      ],
+      "required_files": [
+        "data/tasks/amazon-clothing/coreview_prediction/relational_train.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_val_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/relational_test_negative_sample_100.csv",
+        "data/tasks/amazon-clothing/coreview_prediction/personal_observed.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "static-gcn",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": null
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "two-stage-gcn",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": null
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "bridge-gcn",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "GCN,GCN",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 512,
+        "tr_dropout": 0.2
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": null,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 512,
+        "tr_dropout": 0.2
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "static-gat",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "two-stage-gat",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "bridge-gat",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "GAT,GAT",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 512,
+        "tr_dropout": 0.2,
+        "heads": 1
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": 1,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 512,
+        "tr_dropout": 0.2
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "static-tfconv",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "two-stage-tfconv",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "bridge-tfconv",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "TransformerConv,TransformerConv",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 512,
+        "tr_dropout": 0.2,
+        "heads": 1
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": 1,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 512,
+        "tr_dropout": 0.2
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "tcl",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "TCL",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "nat",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "NAT",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "graphmixer",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "GraphMixer",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "tpnet",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "TPNet",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "tgn",
+      "entrypoint": "notebooks/temporal_graph.py",
+      "arguments": {
+        "model": "TGN",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Table 12 specifies frozen review-text node features. Attention heads=2 are hardcoded by TransformerConv in this script, with no heads CLI."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "dyrep",
+      "entrypoint": "notebooks/temporal_graph.py",
+      "arguments": {
+        "model": "DyRep",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Table 12 specifies frozen review-text node features. Attention heads=2 are hardcoded by TransformerConv in this script, with no heads CLI."
+      ],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "sbert",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "seq_only": true
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Section 5.2",
+        "page": 8
+      },
+      "unresolved": [
+        "The PDF does not report the SBERT-only classifier LR, batch size, or selected classifier hyperparameters. Retained launcher searches LR 5e-5 and 1e-4; do not choose one without run artifacts."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "relgt",
+      "entrypoint": "relgt-main/main_node_ddp.py",
+      "arguments": {
+        "dataset": "amazon-movies",
+        "task": "fraud"
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Appendix D",
+        "page": 8
+      },
+      "unresolved": [
+        "Tables 7-13 do not identify the selected RelGT optimizer, architecture, training budget, and relational table/text/cache artifacts. Recover per-row run metadata before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "movies",
+      "method": "relgt-text",
+      "entrypoint": "relgt-main/main_node_ddp.py",
+      "arguments": {
+        "dataset": "amazon-movies",
+        "task": "fraud",
+        "use_review_text": true
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Appendix D",
+        "page": 8
+      },
+      "unresolved": [
+        "Tables 7-13 do not identify the selected RelGT optimizer, architecture, training budget, and relational table/text/cache artifacts. Recover per-row run metadata before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-movies/all_nodes.csv",
+        "data/processed/amazon-movies/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "static-gcn",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": null
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "two-stage-gcn",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": null
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "bridge-gcn",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "GCN,GCN",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.2
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": null,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.2
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "static-gat",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "two-stage-gat",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "bridge-gat",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "GAT,GAT",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.2,
+        "heads": 1
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": 1,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.2
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "static-tfconv",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "two-stage-tfconv",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "bridge-tfconv",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "TransformerConv,TransformerConv",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.2,
+        "heads": 1
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": 1,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 4,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.2
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "tcl",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "TCL",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "nat",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "NAT",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "graphmixer",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "GraphMixer",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "tpnet",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "TPNet",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "tgn",
+      "entrypoint": "notebooks/temporal_graph.py",
+      "arguments": {
+        "model": "TGN",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Table 12 specifies frozen review-text node features. Attention heads=2 are hardcoded by TransformerConv in this script, with no heads CLI."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "dyrep",
+      "entrypoint": "notebooks/temporal_graph.py",
+      "arguments": {
+        "model": "DyRep",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Table 12 specifies frozen review-text node features. Attention heads=2 are hardcoded by TransformerConv in this script, with no heads CLI."
+      ],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "sbert",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "seq_only": true
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Section 5.2",
+        "page": 8
+      },
+      "unresolved": [
+        "The PDF does not report the SBERT-only classifier LR, batch size, or selected classifier hyperparameters. Retained launcher searches LR 5e-5 and 1e-4; do not choose one without run artifacts."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "relgt",
+      "entrypoint": "relgt-main/main_node_ddp.py",
+      "arguments": {
+        "dataset": "amazon-electronics",
+        "task": "fraud"
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Appendix D",
+        "page": 8
+      },
+      "unresolved": [
+        "Tables 7-13 do not identify the selected RelGT optimizer, architecture, training budget, and relational table/text/cache artifacts. Recover per-row run metadata before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "electronics",
+      "method": "relgt-text",
+      "entrypoint": "relgt-main/main_node_ddp.py",
+      "arguments": {
+        "dataset": "amazon-electronics",
+        "task": "fraud",
+        "use_review_text": true
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Appendix D",
+        "page": 8
+      },
+      "unresolved": [
+        "Tables 7-13 do not identify the selected RelGT optimizer, architecture, training budget, and relational table/text/cache artifacts. Recover per-row run metadata before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-electronics/all_nodes.csv",
+        "data/processed/amazon-electronics/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "static-gcn",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": null
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "two-stage-gcn",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GCN",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": null
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "bridge-gcn",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "GCN,GCN",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 2,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.15
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": null,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 2,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.15
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "static-gat",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "two-stage-gat",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "GAT",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "bridge-gat",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "GAT,GAT",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 2,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.2,
+        "heads": 1
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": 1,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 2,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.2
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "static-tfconv",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "two-stage-tfconv",
+      "entrypoint": "notebooks/static_graph_clf.py",
+      "arguments": {
+        "model": "TransformerConv",
+        "lr": 0.001,
+        "train_batch_size": 4096,
+        "heads": 2,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 11,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Two-stage fraud uses mean-pooled frozen Sentence-BERT review text, not the MLM user embedding used for link prediction. Sentence-BERT model defaults to sentence-transformers/all-MiniLM-L6-v2 in code; exact revision/cache provenance is not stated."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "bridge-tfconv",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "bridge": true,
+        "gnn_layer_types": "TransformerConv,TransformerConv",
+        "lr": 0.0003,
+        "batch_size": 512,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 2,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.15,
+        "heads": 1
+      },
+      "paper_settings": {
+        "lr": 0.0003,
+        "batch_size": 512,
+        "heads": 1,
+        "clf_layers": 2,
+        "tr_layers": 2,
+        "tr_nhead": 2,
+        "tr_ffn_dim": 256,
+        "tr_dropout": 0.15
+      },
+      "provenance": {
+        "table": 13,
+        "page": 21
+      },
+      "unresolved": [],
+      "notes": [
+        "GAT+GAT / GCN+GCN / TFConv+TFConv in Table 13 map to Table 3 BRIDGE variants. Other settings use retained code defaults."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "tcl",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "TCL",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "nat",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "NAT",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "graphmixer",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "GraphMixer",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "tpnet",
+      "entrypoint": "notebooks/temporal_graph_tpnet.py",
+      "arguments": {
+        "model": "TPNet",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 1
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [
+        "Table 12 specifies temporal heads, but this entrypoint exposes no head flag. Confirm its internal/external encoder implements the stated head count before --run."
+      ],
+      "notes": [
+        "Appendix Table 21 diagnostic, not a main Table 3 row."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "tgn",
+      "entrypoint": "notebooks/temporal_graph.py",
+      "arguments": {
+        "model": "TGN",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Table 12 specifies frozen review-text node features. Attention heads=2 are hardcoded by TransformerConv in this script, with no heads CLI."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "dyrep",
+      "entrypoint": "notebooks/temporal_graph.py",
+      "arguments": {
+        "model": "DyRep",
+        "lr": 0.001,
+        "train_batch_size": 32768,
+        "use_sequence_embedding": true
+      },
+      "paper_settings": {
+        "lr": 0.001,
+        "batch_size": 32768,
+        "heads": 2
+      },
+      "provenance": {
+        "table": 12,
+        "page": 20
+      },
+      "unresolved": [],
+      "notes": [
+        "Table 12 specifies frozen review-text node features. Attention heads=2 are hardcoded by TransformerConv in this script, with no heads CLI."
+      ],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "sbert",
+      "entrypoint": "notebooks/review_embedding.py",
+      "arguments": {
+        "seq_only": true
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Section 5.2",
+        "page": 8
+      },
+      "unresolved": [
+        "The PDF does not report the SBERT-only classifier LR, batch size, or selected classifier hyperparameters. Retained launcher searches LR 5e-5 and 1e-4; do not choose one without run artifacts."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "relgt",
+      "entrypoint": "relgt-main/main_node_ddp.py",
+      "arguments": {
+        "dataset": "amazon-clothing",
+        "task": "fraud"
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Appendix D",
+        "page": 8
+      },
+      "unresolved": [
+        "Tables 7-13 do not identify the selected RelGT optimizer, architecture, training budget, and relational table/text/cache artifacts. Recover per-row run metadata before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    },
+    {
+      "suite": "fraud",
+      "dataset": "clothing",
+      "method": "relgt-text",
+      "entrypoint": "relgt-main/main_node_ddp.py",
+      "arguments": {
+        "dataset": "amazon-clothing",
+        "task": "fraud",
+        "use_review_text": true
+      },
+      "paper_settings": {},
+      "provenance": {
+        "table": "3; Appendix D",
+        "page": 8
+      },
+      "unresolved": [
+        "Tables 7-13 do not identify the selected RelGT optimizer, architecture, training budget, and relational table/text/cache artifacts. Recover per-row run metadata before --run."
+      ],
+      "notes": [],
+      "required_files": [
+        "data/processed/amazon-clothing/all_nodes.csv",
+        "data/processed/amazon-clothing/all_edges.csv"
+      ]
+    }
+  ]
+}
